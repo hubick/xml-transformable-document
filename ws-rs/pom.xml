@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>net.www-eee.util.transformable</groupId>
+    <artifactId>www-eee-util-transformable-document-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <artifactId>www-eee-util-transformable-document-ws-rs</artifactId>
+  <packaging>jar</packaging>
+
+  <name>WWW-EEE Utilities - Transformable Document - Web Services / REST</name>
+
+  <properties>
+    <rs-api.version>2.0.1</rs-api.version>
+    <jersey.version>2.22.2</jersey.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>${rs-api.version}</version>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>net.www-eee.util.transformable</groupId>
+      <artifactId>www-eee-util-transformable-document</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.test-framework</groupId>
+      <artifactId>jersey-test-framework-core</artifactId>
+      <version>${jersey.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+      <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
+      <version>${jersey.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
