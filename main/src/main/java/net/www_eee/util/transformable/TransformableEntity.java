@@ -119,7 +119,7 @@ public abstract class TransformableEntity {
   /**
    * @see #setTransformations(Iterable)
    */
-  protected @Nullable Iterable<@Nullable Templates> transformations = null;
+  protected @Nullable Iterable<? extends @Nullable Templates> transformations = null;
   /**
    * @see #setTransformationParameters(Map)
    */
@@ -240,7 +240,7 @@ public abstract class TransformableEntity {
    * 
    * @return A list of {@link Templates}.
    */
-  public synchronized @Nullable Iterable<@Nullable Templates> getTransformations() {
+  public synchronized @Nullable Iterable<? extends @Nullable Templates> getTransformations() {
     return transformations;
   }
 
@@ -249,7 +249,7 @@ public abstract class TransformableEntity {
    * 
    * @param transformations A list of {@link Templates}.
    */
-  public synchronized void setTransformations(final @Nullable Iterable<@Nullable Templates> transformations) {
+  public synchronized void setTransformations(final @Nullable Iterable<? extends @Nullable Templates> transformations) {
     this.transformations = transformations;
     return;
   }
@@ -354,7 +354,7 @@ public abstract class TransformableEntity {
    * result.
    */
   public synchronized @Nullable MimeType getOutputMediaType() throws MimeTypeParseException {
-    final Optional<Templates> lastTransformation = last(transformations, true);
+    final Optional<? extends @Nullable Templates> lastTransformation = last(transformations, true);
     if (!lastTransformation.isPresent()) return mediaType;
     final String mediaType = lastTransformation.get().getOutputProperties().getProperty(OutputKeys.MEDIA_TYPE);
     return (mediaType != null) ? new MimeType(mediaType) : null;
@@ -369,7 +369,7 @@ public abstract class TransformableEntity {
    * result.
    */
   public synchronized @Nullable Charset getOutputEncoding() throws UnsupportedCharsetException {
-    final Optional<Templates> lastTransformation = last(transformations, true);
+    final Optional<? extends @Nullable Templates> lastTransformation = last(transformations, true);
     if (!lastTransformation.isPresent()) return encoding;
     final String encoding = lastTransformation.get().getOutputProperties().getProperty(OutputKeys.ENCODING);
     return (encoding != null) ? Charset.forName(encoding) : null;
@@ -447,7 +447,7 @@ public abstract class TransformableEntity {
    * {@linkplain SAXTransformerFactory#newTransformerHandler(Templates) constructing} a handler.
    */
   protected Result createTransformerHandlers(final Result result) throws TransformerConfigurationException {
-    final Iterable<@Nullable Templates> transformations = this.transformations;
+    final Iterable<? extends @Nullable Templates> transformations = this.transformations;
     if ((transformations == null) || (!first(transformations, true).isPresent())) return result;
 
     final ArrayList<TransformerHandler> transformerHandlers = new ArrayList<TransformerHandler>();
