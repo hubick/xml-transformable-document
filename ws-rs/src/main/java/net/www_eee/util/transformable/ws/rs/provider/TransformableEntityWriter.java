@@ -5,7 +5,7 @@
  * Software Foundation <http://www.gnu.org/licenses/>, a copy of which you should have received in the file LICENSE.txt.
  */
 
-package net.www_eee.util.misc.transform.ws.rs.provider;
+package net.www_eee.util.transformable.ws.rs.provider;
 
 import java.io.*;
 import java.lang.annotation.*;
