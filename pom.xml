@@ -10,7 +10,7 @@
   <description>A Java library for managing an XML document along with XSLT transformations.</description>
   <licenses>
     <license>
-      <name>GNU AFFERO GENERAL PUBLIC LICENSE version 3</name>
+      <name>GNU AFFERO GENERAL PUBLIC LICENSE version 3, plus additional permissions</name>
       <url>http://www.gnu.org/licenses/</url>
       <distribution>repo</distribution>
     </license>
