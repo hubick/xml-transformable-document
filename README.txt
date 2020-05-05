@@ -1,5 +1,5 @@
-WWW-EEE Util Transformable Document
------------------------------------
+Transformable Document
+----------------------
 
 A Java library for managing an XML document along with XSLT transformations.
 

@@ -2,14 +2,28 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>net.www-eee.util.transformable</groupId>
-    <artifactId>www-eee-util-transformable-document-parent</artifactId>
+    <groupId>com.hubick.xml-transformable-document</groupId>
+    <artifactId>xml-transformable-document-parent</artifactId>
     <version>1.0.0</version>
   </parent>
 
-  <artifactId>www-eee-util-transformable-document</artifactId>
+  <artifactId>xml-transformable-document</artifactId>
   <packaging>jar</packaging>
 
-  <name>WWW-EEE Utilities - Transformable Document</name>
+  <name>Transformable Document</name>
+  <description>A Java library for managing an XML document along with XSLT transformations.</description>
+
+  <properties>
+    <activation-api.version>1.2.2</activation-api.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>jakarta.activation</groupId>
+      <artifactId>jakarta.activation-api</artifactId>
+      <version>${activation-api.version}</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 
 </project>

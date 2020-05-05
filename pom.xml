@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>net.www-eee.util.transformable</groupId>
-  <artifactId>www-eee-util-transformable-document-parent</artifactId>
+  <groupId>com.hubick.xml-transformable-document</groupId>
+  <artifactId>xml-transformable-document-parent</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
 
-  <name>WWW-EEE Utilities - Transformable Document (Parent)</name>
+  <name>Transformable Document (Parent)</name>
   <description>A Java library for managing an XML document along with XSLT transformations.</description>
   <licenses>
     <license>
@@ -26,20 +26,20 @@
       <id>hubick</id>
       <name>Chris Hubick</name>
       <email>chris@hubick.com</email>
-      <url>http://chris.hubick.com/</url>
+      <url>https://chris.hubick.com/</url>
     </developer>
   </developers>
 
   <scm>
-    <url>https://github.com/www-eee/www-eee-util-transformable-document.git</url>
-    <connection>scm:git:git://github.com/www-eee/www-eee-util-transformable-document.git</connection>
-    <developerConnection>scm:git:git@github.com/www-eee/www-eee-util-transformable-document.git</developerConnection>
+    <url>https://github.com/hubick/xml-transformable-document</url>
+    <connection>scm:git:https://github.com/hubick/xml-transformable-document.git</connection>
+    <developerConnection>scm:git:git@github.com:hubick/xml-transformable-document.git</developerConnection>
   </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <org.eclipse.jdt.annotation.version>2.0.0</org.eclipse.jdt.annotation.version>
-    <junit.version>4.12</junit.version>
+    <org.eclipse.jdt.annotation.version>2.2.400</org.eclipse.jdt.annotation.version>
+    <junit.jupiter.version>5.6.2</junit.jupiter.version>
   </properties>
 
   <dependencies>
@@ -50,9 +50,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -62,7 +62,7 @@
       <plugins>
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.10.4</version>
+          <version>3.2.0</version>
           <configuration>
             <show>public</show>
             <detectLinks>true</detectLinks>
@@ -74,15 +74,14 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.6.1</version>
+        <version>3.8.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <release>11</release>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.3.0</version>
         <configuration>
           <descriptorRefs>
             <descriptorRef>project</descriptorRef>
@@ -91,7 +90,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-scm-plugin</artifactId>
-        <version>1.9.5</version>
+        <version>1.11.2</version>
         <configuration>
           <connectionType>developerConnection</connectionType>
         </configuration>

@@ -1,12 +1,12 @@
 /*
- * Copyright 2012-2017 by Chris Hubick. All Rights Reserved.
+ * Copyright 2012-2020 by Chris Hubick. All Rights Reserved.
  * 
  * This work is licensed under the terms of the "GNU AFFERO GENERAL PUBLIC LICENSE" version 3, as published by the Free
  * Software Foundation <http://www.gnu.org/licenses/>, plus additional permissions, a copy of which you should have
  * received in the file LICENSE.txt.
  */
 
-package net.www_eee.util.transformable.dom;
+package com.hubick.xml_transformable_document.dom;
 
 import java.io.*;
 import java.net.*;
@@ -14,19 +14,17 @@ import java.util.*;
 
 import javax.xml.*;
 import javax.xml.transform.*;
-import javax.xml.transform.sax.*;
 import javax.xml.transform.stream.*;
 
 import org.w3c.dom.*;
 
 import org.xml.sax.*;
-import org.xml.sax.helpers.*;
 
 import org.eclipse.jdt.annotation.*;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.*;
 
-import org.junit.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -45,10 +43,7 @@ public class TransformableDocumentTest {
    * @throws TransformerConfigurationException If there was a problem creating the Templates.
    */
   public static final Templates loadTemplates(final URL templatesURL) throws IOException, SAXException, TransformerConfigurationException {
-    final InputSource templatesInputSource = new InputSource(templatesURL.openStream());
-    final XMLReader xmlReader = XMLReaderFactory.createXMLReader();
-    xmlReader.setFeature("http://xml.org/sax/features/namespaces", true);
-    final Source templatesSource = new SAXSource(xmlReader, templatesInputSource);
+    final StreamSource templatesSource = new StreamSource(templatesURL.openStream());
     templatesSource.setSystemId(templatesURL.toString());
     final TransformerFactory transformerFactory = TransformerFactory.newInstance();
     return transformerFactory.newTemplates(templatesSource);
@@ -63,8 +58,8 @@ public class TransformableDocumentTest {
    * @throws TransformerConfigurationException If there was a problem creating the Templates.
    */
   public static final Templates loadTestTemplates() throws IOException, SAXException, TransformerConfigurationException {
-    final URL testTemplatesURL = TransformableDocumentTest.class.getResource("/net/www_eee/util/transformable/test.xsl");
-    assertNotNull("test.xsl not found", testTemplatesURL);
+    final URL testTemplatesURL = TransformableDocumentTest.class.getResource("/com/hubick/xml_transformable_document/test.xsl");
+    assertNotNull(testTemplatesURL, "test.xsl not found");
     return loadTemplates(testTemplatesURL);
   }
 
